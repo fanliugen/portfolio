@@ -1,3 +1,22 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客</title>
+</head>
+<body>
+{#{%  for blog in blogs.all %}#}
+{#    {{ blog.title }}#}
+{#    <br>#}
+{#    {{ blog.date }}#}
+{#    <br>#}
+{#    <img src="{{ blog.image.url }}" height="20%">#}
+{#    <br>#}
+{#{% endfor %}#}
+</body>
+</html>
+-->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -81,15 +100,24 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1>Album example</h1>
+      <h1>我的博客</h1>
       <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
       <p>
-        <a href="blog" class="btn btn-primary my-2">我的博客</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        <a href=".." class="btn btn-primary my-2">回到主页</a>
       </p>
     </div>
   </section>
+    <div class="container">
+        {%  for blog in blogs.all %}
+        <h2><a href="">{{ blog.title }}</a> </h2>
 
+        {{ blog.date }}
+        <br>
+        <img src="{{ blog.image.url }}" height="20%">
+        <br>
+            <pre width="650">{{ blog.short_text }}</pre>
+        {% endfor %}
+</div>
   <div class="album py-5 bg-light">
     <div class="container">
 
